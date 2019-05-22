@@ -10,11 +10,12 @@ This code was used to obtain the results described in the paper:
     Presented at [NAACL2019](https://naacl2019.org/program/accepted/)
 
 ## ListOps
-1. Download ListOps dataset. URLs of the original dataset and an extrapolation test set can be found in `data/listops/external/urls.txt` file.
+1. Download ListOps dataset. URLs of the original dataset and an extrapolation test set can be found in `data/listops/external/urls.txt` file. Download each URL using your web browser; wget won't work.
 2. Run `python listops/data_preprocessing/split.py` to split the dataset into the train, the valid and the test sets. 
    Make sure that you have downloaded the dataset and the files are present in the `data/listops/external` folder.
-3. Build vocabulary using `python listops/data_preprocessing/build_vocab.py`.
-4. Run `python listops/ppo/train_ppo_model.py` or `python listops/reinforce/train_reinforce_model.py` to train the model with PPO or REINFORCE estimators.
+   This should produce some files in a directory `data/listops/interim`.
+3. Build vocabulary using `python -m listops.data_preprocessing.build_vocab`. This should produce a `vocab.txt` file in `data/listops/processed`.
+4. Run `python -m listops.ppo.train_ppo_model` or `python -m listops.reinforce.train_reinforce_model` to train the model with PPO or REINFORCE estimators.
 
 ## SST
 1. Run `python sst/ppo/train_ppo_model.py` to train the model using SST-2 or SST-5 datasets.
